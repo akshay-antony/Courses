@@ -13,6 +13,8 @@ Some visual results of a few assignments
 ### 1. Psuedo Coloring
 <p align = "center">
 <img src = "./images/night-vision.png">
+</p>
+<p align = "center">
 Original Image
 </p>
 <p align = "center">
@@ -40,6 +42,8 @@ Center, Left, and Right Images
 central axes
 <p align = "center">
 <img src = "./images/wall2-original.png">
+</p>
+<p align = "center">
 Original Image
 </p>
 <p align = "center">
@@ -50,16 +54,21 @@ Output Image
 </p>
 
 ### 4. Simple Stereo and 3D Reconstruction
-central axes
 <p align = "center">
 <img src = "./images/ball-left.png">
+</p>
+<p align = "center">
 Left Image
 </p>
 <p align = "center">
 <img src = "./images/ball-right.png">
+</p>
+<p align = "center">
 Right Image
 </p>
 <p align = "center">
 <img src = "./images/ball-disparity.png">
+</p>
+<p align = "center">
 Disparity Image
 </p>
