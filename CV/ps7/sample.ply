@@ -1,0 +1,20 @@
+ply
+format ascii 1.0
+comment - Made for CVE
+comment - This file represents a cube's corner vertices
+element vertex 8
+property float32 x
+property float32 y
+property float32 z
+property uint8 red
+property uint8 green
+property uint8 blue
+end_header
+0 0 0  255 255 255                     
+0 0 1  0 0 255
+0 1 1  0 255 0
+0 1 0  0 255 255
+1 0 0  255 0 0
+1 0 1  255 0 255
+1 1 1  255 255 0
+1 1 0  128 128 128
