@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Akshay Antony 16822 Assignment 1</title>
+<style>
+    /* * {
+      box-sizing: border-box;
+    } */
+    
+    .column {
+      float: left;
+      width: 25%;
+      padding: px;
+      text-align: center;
+    }
+    .column2 {
+      float: left;
+      width: 33.3%;
+      padding: 0px;
+      text-align: center;
+    }
+
+    /* Clearfix (clear floats) */
+    .row{
+        display: block;
+    }
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    .answer {
+        text-align: center;
+
+    }
+
+    body {
+    background-color: #fbfbfb;
+    }
+    body {
+     color: #000000;
+    }
+    </style>
+    </head>
+</head>
+<body>
+
+<h1>Assignment 1</h1>
+<h2>Question 1: Affine Rectification</h2>
+<ol>
+    <li> We need to estimate a transformation upto an affine transform, so we need to solve for 2 D.O.F, as 6 D.O.F freedom would be taken care of by affine transformation </li>
+    <li> Under a projective transformation lines remain lines, so in the input image we can find a line at infinity as the line passing through points of
+         intersection of two lines in input images that are parallel in affine rectified image. In affine rectified image that line is [0, 0, 1].</li>
+    <li>For calculating line at infinity in input image
+        we annotate 2 pairs of lines which are parallel in 3d space. This is the input to
+        the program. The intersection of these two pairs of lines are 
+        found using cross product. And finally the line passing through these 
+        two intersection points are found using cross product. 
+    </li>
+    <li>If the line at infinity in input image found in previous step in (l1, l2, l3) then the transformation is given as a matrix below </li>
+    <img src="./data_for_html/h_affine.png" alt="original tiles4" style="width: 100px; height: 50px;">
+</ol>
+<h3>Results of the algorithm on images given.</h3>
+<h4>1. tiles4.jpg</h4>
+<div class="row">
+    <div class="column2">
+        <img src="./data/q1/tiles4.jpg" alt="original tiles4" style="width: 200px; height: 200px;">
+        <figcaption>
+            Input image
+       </figcaption>
+    </div>
+    <div class="column2">
+        <div class="answer">
+        <img src="./output/q1/input_image_annotated/tiles4.jpg" alt="annoated tiles4" style="width:200px; height: 200px">
+        <figcaption>
+             Annotated Image
+        </figcaption>
+        </div>
+    </div>
+    <div class="column2">
+        <img src="./output/q1/affine_recitified/tiles4.jpg" alt="Mountains" style="width: 200px; height:200px">
+        <figcaption>
+            Affine Recitified Image
+       </figcaption>
+    </div>
+</div>
+
+<h4>2. tiles3.jpg</h4>
+<div class="row">
+    <div class="column2">
+        <img src="./data/q1/tiles3.jpg" alt="original tiles4" style="width: 200px; height: 200px;">
+        <figcaption>
+            Input image
+       </figcaption>
+    </div>
+    <div class="column2">
+        <div>
+        <img src="./output/q1/input_image_annotated/tiles3.jpg" alt="annoated tiles4" style="width:200px; height: 200px">
+        <figcaption>
+             Annotated Image
+        </figcaption>
+    </div>
+    </div>
+    <div class="column2">
+        <img src="./output/q1/affine_recitified/tiles3.jpg" alt="Mountains" style="width: 200px; height:200px">
+        <figcaption>
+            Affine Recitified Image
+       </figcaption>
+    </div>
+</div>
+
+<h4>3. tiles5.jpg</h4>
+<div class="row">
+    <div class="column2">
+        <img src="./data/q1/tiles5.jpg" alt="original tiles4" style="width: 200px; height: 200px;">
+        <figcaption>
+            Input image
+       </figcaption>
+    </div>
+    <div class="column2">
+        <div>
+        <img src="./output/q1/input_image_annotated/tiles5.jpg" alt="annoated tiles4" style="width:200px; height: 200px">
+        <figcaption>
+             Annotated Image
+        </figcaption>
+    </div>
+    </div>
+    <div class="column2">
+        <img src="./output/q1/affine_recitified/tiles5.jpg" alt="Mountains" style="width: 200px; height:200px">
+        <figcaption>
+            Affine Recitified Image
+       </figcaption>
+    </div>
+</div>
+
+<h4>4. chess1.jpg</h4>
+<div class="row">
+    <div class="column2">
+        <img src="./data/q1/chess1.jpg" alt="original tiles4" style="width: 200px; height: 200px;">
+        <figcaption>
+            Input image
+       </figcaption>
+    </div>
+    <div class="column2">
+        <div>
+        <img src="./output/q1/input_image_annotated/chess1.jpg" alt="annoated tiles4" style="width:200px; height: 200px">
+        <figcaption>
+             Annotated Image
+        </figcaption>
+    </div>
+    </div>
+    <div class="column2">
+        <img src="./output/q1/affine_recitified/chess1.jpg" alt="Mountains" style="width: 200px; height:200px">
+        <figcaption>
+            Affine Recitified Image
+       </figcaption>
+    </div>
+</div>
+
+<h3>Results of the algorithm on captured images.</h3>
+<h4>1. keyboard.jpg</h4>
+<div class="row">
+    <div class="column2">
+        <img src="./data/q1/keyboard.jpg" alt="original tiles4" style="width: 200px; height: 200px;">
+        <figcaption>
+            Input image
+       </figcaption>
+    </div>
+    <div class="column2">
+        <div>
+        <img src="./output/q1/input_image_annotated/keyboard.jpg" alt="annoated tiles4" style="width:200px; height: 200px">
+        <figcaption>
+             Annotated Image
+        </figcaption>
+    </div>
+    </div>
+    <div class="column2">
+        <img src="./output/q1/affine_recitified/keyboard.jpg" alt="Mountains" style="width: 200px; height:200px">
+        <figcaption>
+            Affine Recitified Image
+       </figcaption>
+    </div>
+</div>
+
+<h4>4. tiles_custom.jpg</h4>
+<div class="row">
+    <div class="column2">
+        <img src="./data/q1/tiles_custom.jpg" alt="original tiles4" style="width: 200px; height: 200px;">
+        <figcaption>
+            Input image
+       </figcaption>
+    </div>
+    <div class="column2">
+        <div>
+        <img src="./output/q1/input_image_annotated/tiles_custom.jpg" alt="annoated tiles4" style="width:200px; height: 200px">
+        <figcaption>
+             Annotated Image
+        </figcaption>
+    </div>
+    </div>
+    <div class="column2">
+        <img src="./output/q1/affine_recitified/tiles_custom.jpg" alt="Mountains" style="width: 200px; height:200px">
+        <figcaption>
+            Affine Recitified Image
+       </figcaption>
+    </div>
+</div>
+
+<h2>Question 2: Rectification upto Similarity transform</h2>
+<ol>
+    <li>We need to estimate a transformation upto a similarity transform, so we need to solve for 4 D.O.F, 
+        as 4 D.O.F freedom would be taken care of by similarity transformation</li>
+    <li>Angle between two lines is given as </li>
+        $\cos(\theta)=l^TC^*_\infty m=0$, if l and m are perpendicular
+    
+    <li>So if we annotate lines in input image that are supposed to be perpendicular in the 3d space,
+        we can find equation for $C^{*'}_\infty$.</li>
+        
+        $l^{'T}C^{*'}_\infty m^{'} = cos(90) = 0$
+    
+        $C^{*'}_\infty$ has 5 parameters, every pair of perpendicular lines gives 1 constraint, so we need 5 pairs. If the image is already affine rectified 3 of them are so, we need only 2 pairs to solve for 2 parameters of 
+        $C^{*'}_\infty$.
+    
+        After finding $C^{*'}_\infty$    we have $C^{*}_\infty=H*C^{*'}_\infty*H^T$. Taking SVD and finding the singular values we can express
+    
+        $$C^{*'}_\infty=U\left[\begin{array}{ccc}
+            1 & 0 & 0\\
+            0 & 1 & 0\\
+            0 & 0 & 0
+            \end{array}\right]U^T$$
+    
+        $$C^{*'}_\infty=HU\left[\begin{array}{ccc}
+            \sigma_1 & 0 & 0\\
+            0 & \sigma_2 & 0\\
+            0 & 0 & 0
+            \end{array}\right]U^TH^T$$
+    
+        $$H=\left[\begin{array}{ccc}
+            1 /\sqrt\sigma_1 & 0 & 0\\
+            0 & 1/\sqrt\sigma_2 & 0\\
+            0 & 0 & 1\
+            \end{array}\right]U^T$$
+            
+         H satisfies with equation, where $\sigma_1, \sigma_2$ are singular values, and U is the left orthonormal matrix.
+</ol>
+
+<h3>Results of the algorithm on images given.</h3>
+<h4>1. tiles4.jpg</h4>
+<div class="row">
+    <div class="column">
+        <img src="./data/q1/tiles4.jpg" alt="original tiles4" style="width: 200px; height: 200px;">
+        <figcaption>
+            Input image
+       </figcaption>
+    </div>
+    <div class="column">
+        <div>
+        <img src="./output/q2/input_image_annotated/tiles4.jpg" alt="annoated tiles4" style="width:200px; height: 200px">
+        <figcaption>
+             Annotated Image
+        </figcaption>
+        </div>
+    </div>
+    <div class="column">
+        <img src="./output/q2/affined_rectified_annotated/tiles4.jpg" alt="Mountains" style="width: 200px; height:200px">
+        <figcaption>
+            Annotated perpendicular lines on Affine-Rectified Image
+       </figcaption>
+    </div>
+    <div class="column">
+        <img src="./output/q2/similarity_rectified/tiles4.jpg" alt="Mountains" style="width: 200px; height:200px">
+        <figcaption>
+            Similarity Rectified Image
+        </figcaption>
+       </div>
+    </div>
+</div>
+
+<h4>2. tiles5.jpg</h4>
+<div class="row">
+    <div class="column">
+        <img src="./data/q1/tiles5.jpg" alt="original tiles5" style="width: 200px; height: 200px;">
+        <figcaption>
+            Input image
+       </figcaption>
+    </div>
+    <div class="column">
+        <div>
+        <img src="./output/q2/input_image_annotated/tiles5.jpg" alt="annoated tiles5" style="width:200px; height: 200px">
+        <figcaption>
+             Annotated Image
+        </figcaption>
+        </div>
+    </div>
+    <div class="column">
+        <img src="./output/q2/affined_rectified_annotated/tiles5.jpg" alt="Mountains" style="width: 200px; height:200px">
+        <figcaption>
+            Annotated perpendicular lines on Affine-Rectified Image
+       </figcaption>
+    </div>
+    <div class="column">
+        <img src="./output/q2/similarity_rectified/tiles5.jpg" alt="Mountains" style="width: 200px; height:200px">
+        <figcaption>
+            Similarity Rectified Image
+        </figcaption>
+       </div>
+    </div>
+</div>
+
+<h4>3. tiles3.jpg</h4>
+    <div class="row">
+        <div class="column">
+            <img src="./data/q1/tiles3.jpg" alt="original tiles3" style="width: 200px; height: 200px;">
+            <figcaption>
+                Input image
+           </figcaption>
+        </div>
+        <div class="column">
+            <div>
+            <img src="./output/q2/input_image_annotated/tiles3.jpg" alt="annoated tiles3" style="width:200px; height: 200px">
+            <figcaption>
+                 Annotated Image
+            </figcaption>
+            </div>
+        </div>
+        <div class="column">
+            <img src="./output/q2/affined_rectified_annotated/tiles3.jpg" alt="Mountains" style="width: 200px; height:200px">
+            <figcaption>
+                Annotated perpendicular lines on Affine-Rectified Image
+           </figcaption>
+        </div>
+        <div class="column">
+            <img src="./output/q2/similarity_rectified/tiles3.jpg" alt="Mountains" style="width: 200px; height:200px">
+            <figcaption>
+                Similarity Rectified Image
+            </figcaption>
+           </div>
+        </div>
+    </div>
+
+<h4>4. chess1.jpg</h4>
+<div class="row">
+    <div class="column">
+        <img src="./data/q1/chess1.jpg" alt="original chess1" style="width: 200px; height: 200px;">
+        <figcaption>
+            Input image
+        </figcaption>
+    </div>
+    <div class="column">
+        <div>
+        <img src="./output/q2/input_image_annotated/chess1.jpg" alt="annoated chess1" style="width:200px; height: 200px">
+        <figcaption>
+                Annotated Image
+        </figcaption>
+        </div>
+    </div>
+    <div class="column">
+        <img src="./output/q2/affined_rectified_annotated/chess1.jpg" alt="Mountains" style="width: 200px; height:200px">
+        <figcaption>
+            Annotated perpendicular lines on Affine-Rectified Image
+        </figcaption>
+    </div>
+    <div class="column">
+        <img src="./output/q2/similarity_rectified/chess1.jpg" alt="Mountains" style="width: 200px; height:200px">
+        <figcaption>
+            Similarity Rectified Image
+        </figcaption>
+        </div>
+    </div>
+</div>
+
+<h3>Results of the algorithm on captured images.</h3>
+<h4>4. keyboard.jpg</h4>
+<div class="row">
+    <div class="column">
+        <img src="./data/q1/keyboard.jpg" alt="original keyboard" style="width: 200px; height: 200px;">
+        <figcaption>
+            Input image
+        </figcaption>
+    </div>
+    <div class="column">
+        <div>
+        <img src="./output/q2/input_image_annotated/keyboard.jpg" alt="annoated keyboard" style="width:200px; height: 200px">
+        <figcaption>
+                Annotated Image
+        </figcaption>
+        </div>
+    </div>
+    <div class="column">
+        <img src="./output/q2/affined_rectified_annotated/keyboard.jpg" alt="Mountains" style="width: 200px; height:200px">
+        <figcaption>
+            Annotated perpendicular lines on Affine-Rectified Image
+        </figcaption>
+    </div>
+    <div class="column">
+        <img src="./output/q2/similarity_rectified/keyboard.jpg" alt="Mountains" style="width: 200px; height:200px">
+        <figcaption>
+            Similarity Rectified Image
+        </figcaption>
+        </div>
+    </div>
+</div>
+
+<h4>4. tiles_custom.jpg</h4>
+<div class="row">
+    <div class="column">
+        <img src="./data/q1/tiles_custom.jpg" alt="original tiles_custom" style="width: 200px; height: 200px;">
+        <figcaption>
+            Input image
+        </figcaption>
+    </div>
+    <div class="column">
+        <div>
+        <img src="./output/q2/input_image_annotated/tiles_custom.jpg" alt="annoated tiles_custom" style="width:200px; height: 200px">
+        <figcaption>
+                Annotated Image
+        </figcaption>
+        </div>
+    </div>
+    <div class="column">
+        <img src="./output/q2/affined_rectified_annotated/tiles_custom.jpg" alt="Mountains" style="width: 200px; height:200px">
+        <figcaption>
+            Annotated perpendicular lines on Affine-Rectified Image
+        </figcaption>
+    </div>
+    <div class="column">
+        <img src="./output/q2/similarity_rectified/tiles_custom.jpg" alt="Mountains" style="width: 200px; height:200px">
+        <figcaption>
+            Similarity Rectified Image
+        </figcaption>
+        </div>
+    </div>
+</div>
+
+<h2>Question 3: Homography</h2>
+<h3>Results of the algorithm on images given.</h3>
+<h4>1. desk.jpg</h4>
+<div class="row">
+    <div class="column">
+        <img src="./data/q3/desk-normal.png" alt="original tiles4" style="width: 200px; height: 200px;">
+        <figcaption>
+            Normal image
+       </figcaption>
+    </div>
+    <div class="column">
+        <div>
+        <img src="./data/q3/desk-perspective.png" alt="annoated tiles4" style="width:300px; height: 200px">
+        <figcaption>
+             Perspective Image
+        </figcaption>
+        </div>
+    </div>
+    <div class="column">
+        <center>
+        <img src="./output/q3/input_image_annotated/desk-normal.jpg" alt="Mountains" style="width: 300px; height:200px">
+    </center>
+        <figcaption>
+            Annotated Perspective Image
+       </figcaption>
+    </div>
+    <div class="column">
+        <img src="./output/q3/warped_results/desk.jpg" alt="Mountains" style="width: 300px; height:200px">
+        <figcaption>
+            Warped and Overlaid Image
+        </figcaption>
+       </div>
+    </div>
+</div>
+
+<h3>Results of the algorithm on custom images.</h3>
+<h4>1. wizard.jpg</h4>
+<div class="row">
+    <div class="column">
+        <img src="./data/q3/messi.jpg" alt="original tiles4" style="width: 200px; height: 200px;">
+        <figcaption>
+            Normal image
+       </figcaption>
+    </div>
+    <div class="column">
+        <div>
+        <img src="./data/q3/wizard.jpg" alt="annoated tiles4" style="width:200px; height: 200px">
+        <figcaption>
+             Perspective Image
+        </figcaption>
+        </div>
+    </div>
+    <div class="column">
+        <img src="./output/q3/input_image_annotated/messi.jpg" alt="Mountains" style="width: 200px; height:200px">
+        <figcaption>
+            Annotated Perspective Image
+       </figcaption>
+    </div>
+    <div class="column">
+        <img src="./output/q3/warped_results/messi.jpg" alt="Mountains" style="width: 200px; height:200px">
+        <figcaption>
+            Warped and Overlaid Image
+        </figcaption>
+       </div>
+    </div>
+</div>
+
+<h4>2. billboard.jpg</h4>
+<div class="row">
+    <div class="column">
+        <img src="./data/q3/billboard-normal.jpg" alt="original tiles4" style="width: 200px; height: 200px;">
+        <figcaption>
+            Normal image
+       </figcaption>
+    </div>
+    <div class="column">
+        <div>
+        <img src="./data/q3/billboard-perspective.jpg" alt="annoated tiles4" style="width:300px; height: 200px">
+        <figcaption>
+             Perspective Image
+        </figcaption>
+        </div>
+    </div>
+    <div class="column">
+        <img src="./output/q3/input_image_annotated/billboard-normal.jpg" alt="Mountains" style="width: 300px; height:200px">
+        <figcaption>
+            Annotated Perspective Image
+       </figcaption>
+    </div>
+    <div class="column">
+        <img src="./output/q3/warped_results/billboard.jpg" alt="Mountains" style="width: 300px; height:200px">
+        <figcaption>
+            Warped and Overlaid Image
+        </figcaption>
+       </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+<h2>Question 5: Bonus2</h2>
+<h3>Results of the algorithm on custom images.</h3>
+<h4>1. advertise.jpg</h4>
+<div class="row">
+    <div class="column2">
+        <img src="./data/q5/sixth-sense.jpg" alt="original tiles4" style="width: 200px; height: 200px;">
+        <figcaption>
+            Normal image 1
+       </figcaption>
+    </div>
+    <div class="column2">
+        <div>
+        <img src="./data/q5/prestige.jpg" alt="annoated tiles4" style="width:200px; height: 200px">
+        <figcaption>
+             Normal Image 2
+        </figcaption>
+        </div>
+    </div>
+    <div class="column2">
+        <img src="./data/q5/memories.jpg" alt="Mountains" style="width: 200px; height:200px">
+        <figcaption>
+            Normal Image 3
+       </figcaption>
+    </div>
+</div>
+<div class="row">
+    <div class="column2">
+        <img src="./data/q5/advertise-perspective.jpg" alt="Mountains" style="width: 400px; height:200px">
+        <figcaption>
+            Perspective Image
+        </figcaption>
+       </div>
+    <div class="column2">
+        <img src="./output/q5/annotated_images/advertise.jpg" alt="Mountains" style="width: 400px; height:200px">
+        <figcaption>
+           Annotated Perspective Image
+        </figcaption>
+       </div>
+    <div class="column2">
+        <img src="./output/q5/results/advertise.jpg" alt="Mountains" style="width: 400px; height:200px">
+        <figcaption>
+            Warped and Overlaid Image
+        </figcaption>
+    </div>
+    </div>
+</div>
